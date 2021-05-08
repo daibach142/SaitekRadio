@@ -1,0 +1,46 @@
+INSTALLATION
+============
+
+Download project from Github, and extract the contents into a working directory
+(which may be discarded after installation is complete).
+
+On Linux:
+
+Type:
+	sudo make install
+
+If the Radio Panel is plugged in, disconnect and reconnect it to change the access
+permissions.
+
+The driver can then be started with the command 'saitekradio'
+
+On Windows:
+
+Copy saitekradio.exe to a convenient location.
+Copy saitekradio.xml to C:/Program Files/Flightgear 2020.3/data/Protocol
+
+You may need to create the directory(folder) Nasal below.
+Copy saitekradio.nas to <username>/Appdata/Roaming/flightgear.org/Nasal
+
+On Linux or Windows:
+
+Plug the Saitek Radio into a USB port.
+
+Start the handler by running 'saitekradio' or 'saitekradio.exe'
+
+The radio display will show ascending/descending digits on the Radio display.
+Press either of the ACT/STBY keys, and the display will blank alternate digits.
+
+In the FGFS Start Screen, in 'Settings/Additional settings', insert the following:
+
+--generic=socket,out,30,127.0.0.1,60001,udp,saitekradio
+--generic=socket,in,20,,60002,udp,saitekradio
+
+and start the simulator.
+Shortly, the display will change to show the selected radio details.
+When the aircraft has fully loaded, all the radio panel controls will be active.
+
+
+If the program terminates unexpectedly, re-run under the command-line interface
+to be able to read the (hopefully useful) error message. 
+

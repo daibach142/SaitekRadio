@@ -1,0 +1,142 @@
+<?xml version="1.0"?>
+<PropertyList>
+	<generic>
+	
+		<input>
+			<line_separator>newline</line_separator>
+			<var_separator>,</var_separator>
+
+			<chunk>
+				<name>Device</name>
+				<type>string</type>
+				<node>/saitek_radio_panel/device</node>
+			</chunk>
+
+			<chunk>
+				<name>Action</name>
+				<node>/saitek_radio_panel/action</node>
+			</chunk>
+			
+		</input>
+
+	
+		<output>
+			<line_separator>newline</line_separator>
+			<var_separator>,</var_separator>
+			<binary_mode>false</binary_mode>
+
+			<!-- COM1 ACTIVE -->
+			<chunk>
+				<name>com1a</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/comm/frequencies/selected-mhz</node>
+			</chunk>
+
+			<!-- COM1 STANDBY -->
+			<chunk>
+				<name>com1stb</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/comm/frequencies/standby-mhz</node>
+			</chunk>
+
+			<!-- COM2 ACTIVE -->
+			<chunk>
+				<name>com2a</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/comm[1]/frequencies/selected-mhz</node>
+			</chunk>
+
+			<!-- COM2 STANDBY -->
+			<chunk>
+				<name>com2stb</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/comm[1]/frequencies/standby-mhz</node>
+			</chunk>
+
+			<!-- NAV1 ACTIVE -->
+			<chunk>
+				<name>nav1a</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/nav/frequencies/selected-mhz</node>
+			</chunk>
+
+			<!-- NAV1 STANDBY -->
+			<chunk>
+				<name>nav1stb</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/nav/frequencies/standby-mhz</node>
+			</chunk>
+
+			<!-- NAV2 ACTIVE -->
+			<chunk>
+				<name>nav2a</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/nav[1]/frequencies/selected-mhz</node>
+			</chunk>
+
+
+			<!-- NAV2 STANDBY -->
+			<chunk>
+				<name>nav2stb</name>
+				<format>%06.2f</format>
+				<type>float</type>
+				<node>/instrumentation/nav[1]/frequencies/standby-mhz</node>
+			</chunk>
+
+			<!-- ADF ACTIVE -->
+			<chunk>
+				<name>adfa</name>
+				<format>%s</format>
+				<type>string</type>
+				<node>/instrumentation/adf/frequencies/selected-khz</node>
+			</chunk>
+
+			<!-- ADF STANDBY -->
+			<chunk>
+				<name>adfstb</name>
+				<format>%s</format>
+				<type>string</type>
+				<node>/instrumentation/adf/frequencies/standby-khz</node>
+			</chunk>
+
+			<!-- DME -->
+			<chunk>
+				<name>dme</name>
+				<format>%s</format>
+				<type>string</type>
+				<node>/instrumentation/dme/KDI572-574/nm</node>
+			</chunk>
+
+			<chunk>
+				<name>dmev</name>
+				<format>%s</format>
+				<type>string</type>
+				<node>/instrumentation/dme/KDI572-574/min</node>
+			</chunk>
+			
+			<!-- XPDR -->
+			
+			<!-- dummy entry as ACT  part of transponder -->
+			<chunk>
+				<name>dummy</name>
+				<format>--</format>
+			</chunk>
+			
+			<chunk>
+				<name>xpdr</name>
+				<format>%s</format>
+				<type>string</type>
+				<node>/instrumentation/transponder/id-code</node>
+			</chunk>
+
+
+		</output>
+	</generic>
+</PropertyList>

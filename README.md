@@ -16,3 +16,6 @@ If you would like to improve the code or automate the Windows installation, plea
 This project is the successor to daibach142/FGFS_Saitek_Radio on GitHub.
 
 For problems or issues either enter an issue on Github, or email stkrp@attwoods.org.uk.
+
+This revision expands the source zip file to encourage participation!
+

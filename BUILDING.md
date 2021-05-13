@@ -23,6 +23,10 @@ You make the (delivered) version from the 'code' directory using:
 - `cargo build --release`
 
 which will be in `target/release`
+and, on Linux, reduce the size of the executable (by 3MB!!) with:
+
+- `strip target/release/saitekradio`
+
 
 Note: the `saitekradio` executable will accept parameters:
 

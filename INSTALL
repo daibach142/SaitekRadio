@@ -44,3 +44,6 @@ When the aircraft has fully loaded, all the radio panel controls will be active.
 If the program terminates unexpectedly, re-run under the command-line interface
 to be able to read the (hopefully useful) error message. 
 
+IMPORTANT NOTE!!!
+If you have used my previous driver (FGFS_Saitek_Radio) you MUST remove the 'Saitek.nas'
+file from your local 'Nasal' directory.

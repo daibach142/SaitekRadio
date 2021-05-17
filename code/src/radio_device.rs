@@ -96,6 +96,7 @@ impl Device {
         // device sends 3 bytes, 0 on error
         if read_length == 3 {
             self.input_current = ((buf[0] as u32) << 16) | ((buf[1] as u32) << 8) | (buf[2] as u32);
+            // println!("Read {:6x}", self.input_current);
         }
     }
 
@@ -200,7 +201,7 @@ fn initialise_device(device: &HidDevice) -> u32 {
     let reply = (buf[0] as u32) << 16 | (buf[1] as u32) << 8 | (buf[2] as u32);
     println!("Saitek Radio ready");
     for i in 1..11 {
-        buf[i * 2] = 0x0a;
+        buf[i * 2] = 0xee;
     }
     buf[0] = 0;
     buf[1] = 1 as u8;
@@ -240,6 +241,7 @@ fn convert_to_display(value: &String, display: &mut [u8]) {
         // not empty
         for b in value.bytes() {
             if b == b'-' {
+                display[i] = 0xee;
                 return;
             }
             if b == b'.' {

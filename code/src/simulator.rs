@@ -68,6 +68,7 @@ impl Simulator {
     /// input, and the action (which is one of 0, 1, 2, 4, 8)
     pub fn write(&self, radionum: usize, action: u8) {
         let data = format!("{},{}\n", COMMAND[radionum], action);
+        // println!("Writing {}", data);
         let buf = data.into_bytes();
         // Following required to avoid getting 'address in use' error
         // Copied from https://illegalargumentexception.blogspot.com/2015/05/rust-send-and-receive-on-localhost-with.html

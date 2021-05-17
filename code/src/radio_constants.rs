@@ -14,8 +14,8 @@ You should have received a copy of the GNU General Public License
 along with this program. If not, see <https://www.gnu.org/licenses/>.
 
  */
-// Definitions for the Radio selections (left hand side switches)
-// as read from the radio device
+/// Definitions for the Radio selections (left hand side switches)
+/// as read from the radio device
 pub const TOPCOM1: u32 = 0x010000;
 pub const TOPCOM2: u32 = 0x020000;
 pub const TOPNAV1: u32 = 0x040000;
@@ -31,7 +31,7 @@ pub const BOTADF: u32 = 0x000800;
 pub const BOTDME: u32 = 0x001000;
 pub const BOTXPDR: u32 = 0x002000;
 
-// For classification
+/// For classification
 pub const TOP_SELECTIONS: u32 = TOPCOM1 | TOPCOM2 | TOPNAV1 | TOPNAV2 | TOPADF | TOPDME | TOPXPDR;
 pub const BOTTOM_SELECTIONS: u32 =
     BOTCOM1 | BOTCOM2 | BOTNAV1 | BOTNAV2 | BOTADF | BOTDME | BOTXPDR;

@@ -15,10 +15,10 @@ along with this program. If not, see <https://www.gnu.org/licenses/>.
 
  */
 
-/*
-   This program links a Saitek Radio Panel to FlightGear Flight  Simulator.
-   The code runs (without any changes) on Linux and Windows.
-*/
+//!
+//!   This program links a Saitek Radio Panel to FlightGear Flight  Simulator.
+//!   The code runs (without any changes) on Linux and Windows.
+
 
 use crate::radio_device::Device;
 use crate::simulator::Simulator;

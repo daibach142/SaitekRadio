@@ -38,7 +38,7 @@ fn main() -> std::io::Result<()> {
         Some(arg) => arg + ":60001",
         None => "127.0.0.1:60001".to_string(),
     };
-    println!("output {}, input {}", output, input);
+    println!("{} Version {} Output {}, Input {}", env!("CARGO_PKG_NAME"), env!("CARGO_PKG_VERSION"), output, input);
     run(input, output);
     Ok(())
 }

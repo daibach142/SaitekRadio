@@ -34,6 +34,11 @@ Note: the `saitekradio` executable will accept parameters:
 
 if you wish to run it on a remote machine.
 
+## Windows file `startup.bat`
+
+This will start the radio panel, and the switch panel. Edit it to remove the switch panel code if
+you don't have that device.
+
 A useful addition to the Windows installation procedure would be some automation (the author is
 neither a user nor a developer on Windows).
 

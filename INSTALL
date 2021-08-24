@@ -16,7 +16,7 @@ The driver can then be started with the command 'saitekradio'
 
 On Windows:
 
-Copy saitekradio.exe to a convenient location.
+Copy saitekradio.exe and startup.bat to a convenient location, most likely Desktop.
 Copy saitekradio.xml to C:/Program Files/Flightgear 2020.3/data/Protocol
 
 You may need to create the directory(folder) Nasal below.
@@ -26,7 +26,7 @@ On Linux or Windows:
 
 Plug the Saitek Radio into a USB port.
 
-Start the handler by running 'saitekradio' or 'saitekradio.exe'
+Start the handler by running 'saitekradio' (Linux) or double click 'startup.bat' on Windows.
 
 The radio display will show ascending/descending digits on the Radio display.
 Press either of the ACT/STBY keys, and the display will blank alternate digits.

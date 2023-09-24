@@ -1,0 +1,11 @@
+[package]
+name = "radio_device"
+version = {workspace = true}
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+hidapi = {  workspace = true }
+radio_constants = { path = "../radio_constants" }
+simulator = { path = "../simulator" }

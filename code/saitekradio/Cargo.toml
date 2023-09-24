@@ -1,13 +1,27 @@
-[package]
-name = "saitekradio"
-version = "2.1.0"
-authors = ["Dave Attwood <git@attwoods.org.uk>"]
-edition = "2018"
+[workspace]
+# use 
+#    RUSTFLAGS="--cfg piped" cargo build
+# for the piped version
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+members = [
+    "saitekradio",
+    "radio_constants",
+    "radio_device",
+    "simulator",
+]
 
-[dependencies]
+resolver = "2"
+
+[workspace.dependencies]
 hidapi = "1.2.5"
+
+[workspace.package]
+version = "2.2.0"
+authors = ["Dave Attwood <dave@attwoods.org.uk>"]
+description = "Driver for Saitek Radio to connect to FGFS"
+edition = "2021"
+rust-version = "1.65"
 
 [profile.release]
 panic = 'abort'
+

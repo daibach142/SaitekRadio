@@ -1,21 +1,31 @@
 /*
 Driver to connect a Saitek Radio to Flightgear flight simulator
-Copyright (C) 2021 Dave Attwood
 
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
-You should have received a copy of the GNU General Public License
-along with this program. If not, see <https://www.gnu.org/licenses/>.
+MIT License
+
+Copyright (c) 2023 Dave Attwood
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
 
  */
-use crate::radio_constants::*;
-use crate::simulator::Simulator;
+use radio_constants::*;
+use simulator::Simulator;
 use hidapi::{HidApi, HidDevice};
 use std::process;
 
@@ -57,7 +67,14 @@ pub struct Device {
     input_old: u32,     // previous data
 }
 
+impl Default for Device {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl Device {
+
     /// Create an instance of the Saitek Radio device.
     /// The (first) device is located by vendor and device ID.
     /// The device is initialised, providing a value for the Selection switch
@@ -89,10 +106,7 @@ impl Device {
         // Non-blocking read the radio panel switches and selectors
         // return 0 if no data, else pack 3 bytes into ls part of u32
         let mut buf = [0u8, 0, 0];
-        let read_length = match self.device.read(&mut buf) {
-            Ok(l) => l,  // good read, should be 3
-            Err(_) => 0, // probably non-blocking - no data
-        };
+        let read_length = self.device.read(&mut buf).unwrap_or(0);
         // device sends 3 bytes, 0 on error
         if read_length == 3 {
             self.input_current = ((buf[0] as u32) << 16) | ((buf[1] as u32) << 8) | (buf[2] as u32);
@@ -204,7 +218,7 @@ fn initialise_device(device: &HidDevice) -> u32 {
         buf[i * 2] = 0xee;
     }
     buf[0] = 0;
-    buf[1] = 1 as u8;
+    buf[1] = 1_u8;
     device.send_feature_report(&buf).unwrap();
     reply
 }
@@ -213,8 +227,8 @@ fn initialise_device(device: &HidDevice) -> u32 {
 /// Panics if not found
 fn find_radio(instrument: u32) -> usize {
     // Finds the (simulator input) &str vec index for the selected instrument
-    for i in 0..7 {
-        if (instrument & RADIO_MAP[i]) != 0 {
+    for (i, val) in RADIO_MAP.iter().enumerate() {
+        if (instrument & val) != 0 {
             return i;
         }
     }

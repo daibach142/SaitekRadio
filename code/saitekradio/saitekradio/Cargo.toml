@@ -1,0 +1,13 @@
+[package]
+name = "saitekradio"
+version = {workspace = true}
+about = {workspace = true}
+description = {workspace = true}
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+radio_device = { path = "../radio_device" }
+simulator = { path = "../simulator" }
+

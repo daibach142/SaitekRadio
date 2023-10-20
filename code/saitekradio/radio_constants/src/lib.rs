@@ -1,5 +1,6 @@
 /*
 Driver to connect a Saitek Radio to Flightgear flight simulator
+
 MIT License
 
 Copyright (c) 2023 Dave Attwood
@@ -23,6 +24,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
  */
+
 /// Definitions for the Radio selections (left hand side switches)
 /// as read from the radio device
 pub const TOPCOM1: u32 = 0x010000;

@@ -26,6 +26,7 @@ THE SOFTWARE.
  */
 
 //!
+//! 
 //!   This program links a Saitek Radio Panel to FlightGear Flight  Simulator.
 //!   The code runs (without any changes) on Linux and Windows.
 
@@ -61,7 +62,9 @@ fn run(input: String, output: String) {
         my_device.read();
 
         if my_device.has_control_input_updated() {
-            let (command_option, value) = my_device.make_command(); // can return Option(None) which is no write required
+            let (command_option, value) = my_device.make_command(); 
+            // May return Option(None) which is no write required
+            // because one of the rotary display selection switches operated
             if let Some(radio) = command_option { my_sim.write(radio, value) }
         }
 

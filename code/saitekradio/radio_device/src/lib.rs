@@ -24,9 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
  */
+use hidapi::{HidApi, HidDevice};
 use radio_constants::*;
 use simulator::Simulator;
-use hidapi::{HidApi, HidDevice};
 use std::process;
 
 const VENDOR_ID: u16 = 0x06a3;
@@ -57,14 +57,14 @@ const RIGHT_SIZE: usize = 23; // 2 bytes at end unused, required on Windows hida
 */
 
 pub struct Device {
-    // ctxt: HidApi,
     device: HidDevice,
     // for device reads and writes
     dampf: bool,
     // to make rotary controls less sensitive
     input_current: u32,
     // data from device
-    input_old: u32,     // previous data
+    input_old: u32,
+    // previous data
 }
 
 impl Default for Device {
@@ -74,7 +74,6 @@ impl Default for Device {
 }
 
 impl Device {
-
     /// Create an instance of the Saitek Radio device.
     /// The (first) device is located by vendor and device ID.
     /// The device is initialised, providing a value for the Selection switch
@@ -82,8 +81,7 @@ impl Device {
     pub fn new() -> Device {
         let ctxt = HidApi::new().unwrap();
         let mut r = Device {
-            // ctxt: HidApi::new().unwrap(),
-            device: ctxt.open(VENDOR_ID, RADIO_ID).unwrap_or_else(|_err| {
+             device: ctxt.open(VENDOR_ID, RADIO_ID).unwrap_or_else(|_err| {
                 println!("Saitek Radio not found");
                 process::exit(1);
             }),
@@ -207,7 +205,7 @@ fn initialise_device(device: &HidDevice) -> u32 {
     }
     buf[0] = 0;
     device.send_feature_report(&buf).unwrap();
-    println!("Operate ACT/STB key on the Saitek Radio");
+    println!("Operate ACT/STBY key on the Saitek Radio");
     device.read(&mut buf).unwrap_or_else(|_| {
         println!("Saitek Radio read error");
         process::exit(3);

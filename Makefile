@@ -23,7 +23,9 @@ install:
 	$(info )
 	$(info *********** Local FGFS location is $(LOCAL_FGFS) ************* )
 	$(info )
+
 	cp $(PRODUCT) $(GAMES_PATH)
+	chmod +x $(GAMES_PATH)/$(PRODUCT)	
 	cp *.xml $(SYSTEM_FGFS)/Protocol
 	mkdir -pv $(LOCAL_FGFS)/Nasal
 	cp saitekradio.nas $(LOCAL_FGFS)/Nasal

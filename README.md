@@ -1,4 +1,4 @@
-#FGFS DRIVER FOR SAITEK RADIO PANEL
+# FGFS DRIVER FOR SAITEK RADIO PANEL
    
 This project provides an interface between Flightgear Flight Simulator and the
 Saitek Radio Panel. The simulated aircraft's radio settings are shown in
@@ -19,12 +19,15 @@ For problems or issues either enter an issue on Github, or email stkrp@attwoods.
 
 ## INSTALLATION
 
-Download project from Github, and extract the contents into a working directory
+Download the latest release from https://github.com/daibach142/SaitekRadio/releases/, and extract the contents into a working directory
 (which may be discarded after installation is complete).
+
+Ensure `flightgear` is installed first!
 
 ### On Linux x86-64:
 
-Type:
+
+Go to the working directory and type:
 
 		sudo make install
 
@@ -39,11 +42,11 @@ See **RUNNING** at the end of this document
 ### On Windows:
 
 1. Copy `saitekradio.exe` and `startup.bat` to a convenient location, most likely Desktop.
-1. Copy `saitekradio.xm`l to `C:/Program Files/Flightgear 2020.3/data/Protocol`
+1. Copy `saitekradio.xml` to `C:\Program Files\Flightgear 2020.3\data\Protocol`
 
-1. You may need to create the directory(folder) `Nasal` below.
+1. You may need to create the folder `Nasal` below.
 
-1. Copy `saitekradio.nas` to `<username>/Appdata/Roaming/flightgear.org/Nasal`
+1. Copy `saitekradio.nas` to `<username>\Appdata\Roaming\flightgear.org\Nasal`
 
 See **RUNNING** at the end of this document		
 
@@ -56,23 +59,20 @@ See **RUNNING** at the end of this document
  
 1. Install Rust - see `https://www.rust-lang.org/tools/install`
 
-1. Compile the code  
+1. Run make
 
-	`cargo build --release`
-1. On Linux, reduce the size of the executable with  
-
-	`strip target/release/saitekradio`
-1. Copy the executable over the released `saitekradio[.exe]` from `target/release/saitekradio`
-
-	`cp target/release/saitekradio ../..`
-1. There is a `Makefile` in `code/saitekradio`, so you may perform steps 3 to 5 above with 
-   
-	`make`	 
+	`make`
+	
 1. Change directory to the installation directory  
 
 	`cd ../..`
 
 1. Now follow the instructions given for x86-64 above.
+
+#### Issues
+
+If the compilation fails, with an error message about `libusb`, you should install the package `libusb-1.0-0-dev` (on Ubuntu)
+using the package manager. 
 
 ----
 

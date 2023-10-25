@@ -63,6 +63,8 @@ See **RUNNING** at the end of this document
 
 	`make`
 	
+	This creates a new `saitekradio` and replaces the original `saitekradio` with the new one.
+	
 1. Change directory to the installation directory  
 
 	`cd ../..`
@@ -98,6 +100,8 @@ When the aircraft has fully loaded, all the radio panel controls will be active.
 
 If the program terminates unexpectedly, re-run under the command-line interface
 to be able to read the (hopefully useful) error message. 
+
+If the handler can't find/access the radio device, unplug it and replug and try again.
 
 
 ----

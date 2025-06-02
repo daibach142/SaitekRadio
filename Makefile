@@ -28,6 +28,7 @@ install:
 	chmod +x $(GAMES_PATH)/$(PRODUCT)	
 	cp *.xml $(SYSTEM_FGFS)/Protocol
 	mkdir -pv $(LOCAL_FGFS)/Nasal
+	-rm $(LOCAL_FGFS)/Nasal/Saitek.nas
 	cp saitekradio.nas $(LOCAL_FGFS)/Nasal
 	cp 55-saitekpanels.conf $(X11_CONF)
 	cp 55-saitek.rules $(UDEV_RULES)

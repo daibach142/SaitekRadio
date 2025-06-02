@@ -240,7 +240,7 @@ fn find_radio(instrument: u32) -> usize {
 /// converted from the b'0'..b'9' digits. A DP is produced by adjusting the code
 /// for the digit before. Spaces are preserved as they occur. A '-' will leave the
 /// output as spaces
-fn convert_to_display(value: &String, display: &mut [u8]) {
+fn convert_to_display(value: &str, display: &mut [u8]) {
     // Each of four displays consists of 5 u8 digit positions
     // encoded as 0..9 for '0'..'9', 0x0a for space, and with
     // added 0xd0 for trailing decimal point on a digit.
